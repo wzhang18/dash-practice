@@ -10,6 +10,7 @@ import pandas as pd
 data = pd.read_csv('random sample data.csv')
 
 app = Dash(__name__)
+server = app.server # required for render.com deployment
 
 app.layout = html.Div([
     dcc.Markdown('''# Sample Report ''')
