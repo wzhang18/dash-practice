@@ -15,12 +15,14 @@ server = app.server # required for render.com deployment
 
 app.layout = html.Div([
     dcc.Markdown('''# Sample Report '''),
+    dcc.Markdown(''' Choose a Role '''),
     dcc.Dropdown(
         options = data['Position'].unique(),
         value = [],
         multi = True,
         id = 'position'
         ),
+    dcc.Markdown(''' Choose a Question '''),
     dcc.Dropdown(
         options = data.columns[21:-1],
         value = (),
