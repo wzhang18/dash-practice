@@ -13,10 +13,6 @@ data = pd.read_csv('https://raw.githubusercontent.com/wzhang18/dash-practice/mai
 app = Dash(__name__)
 server = app.server # required for render.com deployment
 
-#df = data[data['Position'].isin(['HR', 'CEO'])]
-#groupeddf = pd.crosstab(df['Position'], df[df.columns[21]], normalize = 'index')
-#fig2 = px.bar(groupeddf, x=groupeddf.index, y = groupeddf.columns, text_auto= '.1%')
-
 app.layout = html.Div([
     dcc.Markdown('''# Sample Report '''),
     dcc.Dropdown(
@@ -48,9 +44,6 @@ def graph(positions, question):
     df = data[data['Position'].isin(positions)]
     groupeddf = pd.crosstab(df['Position'], df[question], normalize = 'index')
     fig = px.bar(groupeddf, x=groupeddf.index, y = groupeddf.columns, text_auto= '.1%')
-    
-    #df = data[data['Position'].isin(positions)]
-    #fig = px.pie(df, names = question)
     return fig
 
 
